@@ -98,9 +98,9 @@ h1 {
 }
 
 .track-button {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
   gap: 14px;
   min-height: 0;
   padding: clamp(12px, 2vh, 18px) clamp(14px, 2vw, 18px);
@@ -127,18 +127,22 @@ h1 {
 .track-title {
   font-size: clamp(0.98rem, 2.1vw, 1.35rem);
   font-weight: 800;
+  min-width: 0;
 }
 
 .track-state {
-  flex-shrink: 0;
+  min-width: 7.8rem;
   font-size: clamp(0.74rem, 1.2vw, 0.86rem);
   font-weight: 700;
   opacity: 0.95;
+  text-align: right;
 }
 
 .stop-button {
-  padding: clamp(14px, 2vh, 18px) 16px;
-  font-size: clamp(1rem, 2vw, 1.1rem);
+  width: min(100%, 240px);
+  justify-self: center;
+  padding: 12px 16px;
+  font-size: clamp(0.96rem, 1.6vw, 1rem);
   font-weight: 900;
   color: #fff;
   background: linear-gradient(135deg, #6b7280, #4b5563);
@@ -165,15 +169,15 @@ h1 {
   }
 
   .track-button {
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
-    gap: 6px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
     padding: 10px 12px;
   }
 
   .track-state {
     font-size: 0.74rem;
+    min-width: 6.8rem;
   }
 
   .eyebrow {
@@ -199,6 +203,8 @@ h1 {
   }
 
   .stop-button {
+    width: 100%;
+    justify-self: stretch;
     padding: 12px;
     font-size: 0.98rem;
   }
