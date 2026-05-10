@@ -1,0 +1,147 @@
+:root {
+  --bg-top: #f3eadb;
+  --bg-bottom: #d9e6f2;
+  --panel: rgba(255, 250, 244, 0.86);
+  --panel-border: rgba(76, 58, 42, 0.12);
+  --text: #1d1a17;
+  --muted: #5d554e;
+  --shadow: 0 24px 70px rgba(58, 45, 33, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.7), transparent 30%),
+    linear-gradient(160deg, var(--bg-top), var(--bg-bottom));
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 28px 16px;
+}
+
+.player-card {
+  width: min(100%, 720px);
+  padding: 28px;
+  border-radius: 28px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1;
+}
+
+.description {
+  margin: 12px 0 24px;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.track-list {
+  display: grid;
+  gap: 12px;
+}
+
+.track-button,
+.stop-button {
+  width: 100%;
+  border: 0;
+  border-radius: 22px;
+  cursor: pointer;
+  transition:
+    transform 140ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.track-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 18px;
+  text-align: left;
+  box-shadow: 0 12px 24px rgba(18, 16, 15, 0.12);
+}
+
+.track-button:hover,
+.stop-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+
+.track-button:active,
+.stop-button:active {
+  transform: translateY(0);
+}
+
+.track-button.is-active {
+  outline: 4px solid rgba(255, 255, 255, 0.85);
+  outline-offset: -4px;
+}
+
+.track-title {
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  font-weight: 800;
+}
+
+.track-state {
+  flex-shrink: 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  opacity: 0.95;
+}
+
+.stop-button {
+  margin-top: 18px;
+  padding: 18px 16px;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #fff;
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+  box-shadow: 0 12px 28px rgba(55, 65, 81, 0.28);
+}
+
+@media (max-width: 640px) {
+  .player-card {
+    padding: 22px 16px;
+    border-radius: 24px;
+  }
+
+  .track-button {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .track-state {
+    font-size: 0.78rem;
+  }
+}
